@@ -1,0 +1,173 @@
+*** Capitol 1:
+
+Variables:
+
+- are containers can store values in.
+  - var myVariable; /* undefined */
+  - var myVariable = 'text' /* assign a value to a variable */
+
+Data types:
+
+- Primitives:
+  - Boolean
+  - Null
+  - Undefined
+  - Number
+  - String
+  - Symbol
+
+- Object
+
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  o All types except objects define imutable values(values that are incapable of
+    being changed. These are "primitive values".
+
+  > Boolean type:
+    - a logical entity and can have two values:
+      - true
+      - false
+
+  > Null type:
+    - has exactly one value: null
+
+    o The value null represents the intentional absence of any object value.
+      null is not an identifier for a property of the global object.
+      null expresses a lack of identification, indicating that a variable points to no object.
+      In APIs, null is often retrieved in a place where an object can be expected but no object is relevant.
+
+      * Examples:
+
+        ```
+
+          // foo does not exist. It is not defined and has never been initialized:
+
+             foo;
+             "ReferenceError: foo is not defined"
+
+          // foo is known to exist now but it has no type or value:
+
+             var foo = null;
+             foo;
+             "null"
+
+        ```
+
+  > Undefined type:
+    undefined is a property of the global object
+    null is not equivalent to undefined
+
+    o A variable that has not been assigned a value has the value undefined
+    o A method or statement also returns undefined if the variable
+      that is being evaluated does not have an assigned value.
+    o A function returns undefined if a value was not returned.
+
+    - no writable
+    - no enumerable
+    - no configurable
+
+      * Examples:
+
+        - Strict equality and undefined:
+
+          ```
+            var x;
+            if (x === undefined) {
+              // these statement execute
+            }
+            else {
+              // these statement do not execute
+            }
+
+            x == undefined also checks whether x is null, while strict equality doesn't.
+
+          ```
+
+        - Typeof operator and undefined:
+           > this kind of technique should be avoided.
+
+          ```
+            var x;
+            if (typeof x === undefined) {
+              // these statement execute
+            }
+
+          ```
+
+        - Void operator and undefined:
+           > The void operator evaluates the given expression and then returns undefined
+
+          ```
+
+            var x;
+            if (x === void 0) {
+              // these statements execute
+            }
+
+            // y has not been declared before
+            if (y === void 0) {
+              // throws a - Uncaught ReferenceError: y is not defined
+            }
+
+          ```
+
+  > Number type:
+    - one number type: the double-precision 64-bit binary format IEEE 754 value (numbers between -(253 -1) and 253 -1).
+    - There is no specific type for integers.
+    - Values of the number type are numeric values.
+
+  > String type:
+    - is used to represent textual data.
+    - Each element in the String occupies a position in the String.
+    - The first element is at index 0, next at index 1 and so on.
+    - The length of a string is the number of the elements in it.
+
+  > Symbol type:
+    - A symbol is a unique and imutable primitive value
+      and may be used as the key of an Object property.
+
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  > Objects:
+    - a limited set of properties are initialized
+    - then properties can be added and removed.
+    - Property values can be values of any type,
+      including other objects, which enables building complex data structures.
+    - Properties are identified using key values.
+      * A key value is either a String or a Symbol value.
+
+    - Normal objects:
+        - A JavaScript object is a mapping between keys and values.
+        - Keys are strings (or Symbols) and values can be anything.
+        - collection of properties.
+
+    - Functions:
+        - are regular objects with capability of being callable.
+
+    - Dates:
+
+    - Arrays:
+        - indexed collections
+        - are regular objects
+        - particular relation between key and length.
+
+    - Typed arrays:
+    - Keyed collections: Maps, Sets, WeakMaps, WeakSets:
+
+*** Capitol 2
+
+o Basic:
+  - Is case-sensitive.
+  - Use Unicode character set.
+  - instructions are called statements and are separated by semicolons (;).
+
+o Declarations:
+    // There are three kinds of declarations.
+
+    - var => declares a variable, optionally initializing it to a value.
+
+    - let => declares a block scoped, local variable, optionally initializing to a value.
+
+    - const => declares a block scoped, read-only named constant.
+
+o Variables:
