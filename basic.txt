@@ -171,3 +171,181 @@ o Declarations:
     - const => declares a block scoped, read-only named constant.
 
 o Variables:
+  - Variables declarations:
+    > Three ways to declare a variable
+
+      ```
+
+        with the keyword var:
+        var x = 42;  // local and global variables
+
+        directly assigning it a value
+        x = 42;  // outside of a function it declares a global variable
+                 // generate warning
+
+        with the keyword let:
+        let x = 42;  // a bloc scope variable
+
+      ```
+
+  - EVALUATING VARIABLES:
+
+    ! A variable declared with var or let statement
+      with no assigned value specified
+      has the value undefined.
+
+    - Examples:
+
+
+        var x; => //undefined
+
+        /* use undefined to determine whether a variable has a value.*/
+        : var input;
+
+          if (input === undefined) {
+            doThis();
+          } else {
+            doThat();
+          }
+
+        > undefined value behaves like false when is used in a boolean
+          context.
+
+        : var myArray = [];
+
+          if (!myArray[0]) {
+            myFunction();
+          }
+
+        > undefined value convert to NaN in a numeric context
+
+        : var a;
+          a + 2;  *** evaluate to NaN
+
+        > when evaluate a null variable, the null behaves like 0 in a numeric
+          context and as false in a boolean context.
+
+        : var a = null;
+          console.log(a * 32); *** will log 0 in console
+
+  - Variables scope:
+
+    - When declare a variable outside of any funnction
+      it is called a global variable and it is available
+      to any other code in the document.
+
+    - When declare a variable within a function
+      it is called local variable and it is available only
+      within that function.
+
+      : if (true) {
+          var x = 5;
+        }
+        console.log(x);  // x is 5 // *** global
+
+      : if (true) {
+          let y = 5;
+        }
+        console.log(y);  // ReferenceError: y is not defined // *** local
+
+  - Variable hoisting:
+
+      can refer to a variable declared later, without getting an exception.
+      This concept is known as hoisting;
+      variables in JavaScript are in a sense "hoisted"
+      or lifted to the top of the function or statement.
+      However, variables that are hoisted return a value of undefined.
+
+      : console.log(x === undefined); // true
+        var x = 3;
+
+      Because of hoisting, all var statements in a function
+      should be placed as near to the top of the function as possible.
+      This best practice increases the clarity of the code.
+
+  - Function hoisting:
+
+
+      For functions, only the function declaration
+      gets hoisted to the top and not the function expression.
+
+
+        /* Function declaration */
+
+        foo(); // "bar"
+
+        function foo() {
+          console.log('bar');
+        }
+
+
+        /* Function expression */
+
+        baz(); // TypeError: baz is not a function
+
+        var baz = function() {
+          console.log('bar2');
+        };
+
+  - Global variables:
+
+      Global variables are in fact properties of the global object.
+      In web pages, the global object is window, so you can set
+      and access global variables using the window.variable syntax.
+
+  - Constants:
+
+      Create a read-only, named constant with the const key.
+      A constant cannot change value through assignment or
+      be re-declared while the script is running.
+      It must be initialized to a value.
+      The scope rules for constants are the same as those for let block-scope variables.
+
+  - Data type conversion:
+
+      JavaScript is a /dynamically typed language.
+      That means you don't have to specify the data type of a variable
+      when you declare it, and data types are converted automatically
+      as needed during script execution.
+
+      - Example:
+
+        : var answer = 42;
+          answer = 'Thanks for your help';
+
+      In expressions involving numeric and string values
+      with the + operator, JavaScript converts numeric values to strings.
+      For example, consider the following statements:
+
+        : x = 'The answer is ' + 42 // "The answer is 42"
+          y = 42 + ' is the answer' // "42 is the answer"
+
+*** Capitol 3:
+
+  - STATEMENTS:
+
+    - Block statement:
+
+      The most basic statement is a block statement that is used to group
+      statements. The block is delimited by a pair of curly brackets.
+
+        {
+          statement_1;
+          statement_2;
+          .
+          .
+          .
+          statement_n;
+        }
+
+      ! block statements do not define a scope.
+
+      : var x = 1;
+        {
+          var x = 2;
+        }
+        console.log(x); // outputs 2
+
+    - Conditional statements:
+        * A conditional statement is a set of commands that executes if a specified condition is true.
+        JavaScript supports two conditional statements: if...else and switch.
