@@ -347,5 +347,237 @@ o Variables:
         console.log(x); // outputs 2
 
     - Conditional statements:
-        * A conditional statement is a set of commands that executes if a specified condition is true.
-        JavaScript supports two conditional statements: if...else and switch.
+      ~~~~~~~~~~~~~~~~~~~~~~
+
+      IF STATEMENT:
+      ~~~~~~~~~~~~
+
+        if statement to execute a statement if a logical condition is true.
+        else clause to execute a statement if the condition is false.
+
+        : if (condition) {
+            statement_1;
+          } else {
+            statement_2;
+          }
+
+        the _condition_ can be any expression that evaluates to true or false.
+
+          to not use simple assignments in a conditional expression.
+          If you need to use an assignment in a conditional expression,
+          a common practice is to put additional parentheses around the assignment.
+
+        For example:
+
+        : if ((x = y)) {
+            /* statements here */
+          }
+
+
+        * Falsy values
+            The following values evaluate to false (also known as Falsy values):
+
+          o false
+          o undefined
+          o null
+          o 0
+          o NaN
+          o the empty string ("")
+
+      SWITCH STATEMENT:
+      ~~~~~~~~~~~~~~~~
+
+        allows a program to evaluate an expression
+        and attempt to match the expression's value to a case label.
+        If a match is found, the program executes the associated statement.
+          The switch expression is evaluated once.
+
+        : switch (expression) {
+            case label_1:
+              statements_1
+              break;
+            case label_2:
+              statements_2
+              break;
+              ...
+            default:
+              statements_def
+              break;
+          }
+
+          break statement associated with each case clause
+          ensures that the program breaks out of switch
+          once the matched statement is executed
+          and continues execution at the statement following switch.
+          If break is omitted, the program continues execution at
+          the next statement in the switch statement.
+
+      Exception handling statements:
+      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+        can throw exceptions using the throw statement
+        and handle them using the try...catch statements.
+
+          throw statement:
+
+            throw expression;
+
+            : throw 'Error2';   // String type
+              throw 42;         // Number type
+              throw true;       // Boolean type
+              throw {toString: function() { return "I'm an object!"; } };
+
+
+
+*** Capitol 4:
+
+  - Loops and iteration:
+    ~~~~~~~~~~~~~~~~~~~
+
+    : var step;
+        for (step = 0; step < 5; step++) {
+          // Runs 5 times, with values of step 0 through 4.
+          console.log('Walking east one step');
+      }
+
+    FOR STATEMENT:
+    ~~~~~~~~~~~~~
+
+      a for loop repeats until a specified condition  evaluates to false.
+
+      : for ([initialExpression]; [condition]; [incrementExpression]) {
+          statement;
+        }
+
+    do...while statement:
+    ~~~~~~~~~~~~~~~~~~~~
+
+      The do...while statement repeats until a specified condition evaluates
+      to false.
+      statement is always executed once before the condition is checked
+      (and then again until the while condition returns false).
+      If condition is true, the statement executes again.
+
+      : do {
+          statement;
+        }
+        while (condition);
+
+      : var i = 0;
+        do {
+          i += 1;
+          console.log(i);
+        } while (i < 5);
+
+    while statement:
+    ~~~~~~~~~~~~~~~
+
+      executes its statements as long as a specified condition evaluates to true.
+
+      : while (condition) {
+          statement;
+        }
+
+      The following while loop iterates as long as n is less then three.
+
+      : var n = 0;
+        var x = 0;
+        while (n < 3) {
+          n++;
+          x += n;
+        }
+
+    labeled statement:
+    ~~~~~~~~~~~~~~~~~
+
+      A label provides a statement with an identifier
+      that lets refer to it elsewhere in program
+
+      : label:
+          statement
+
+    break statement:
+    ~~~~~~~~~~~~~~~
+
+      Use the break statement to terminate a loop, switch, or
+      in conjunction with a labeled statement.
+
+      : break [label];
+
+      : for (var i = 0; i < a.length; i++) {
+          if (a[i] == theValue) {
+            break;
+          }
+        }
+
+      Breaking to a label:
+      : var x = 0;
+        var z = 0;
+        labelCancelLoops: while (true) {
+          console.log('Outer loops: ' + x);
+          x += 1;
+          z = 1;
+          while (true) {
+            console.log('Inner loops: ' + z);
+            z += 1;
+            if (z === 10 && x === 10) {
+              break labelCancelLoops;
+            } else if (z === 10) {
+              break;
+            }
+          }
+        }
+
+    Continue statement:
+    ~~~~~~~~~~~~~~~~~~
+
+      The continue statement can be used to restart
+      a while, do-while, for, or label statement.
+
+      : continue [label];
+
+    for...in statementSection:
+    ~~~~~~~~~~~~~~~~~~~~~~~~~
+
+      The for...in statement iterates a specified variable
+      over all the enumerable properties of an object.
+      For each distinct property, JavaScript executes the specified statements.
+
+      : for (variable in object) {
+          statements;
+        }
+
+    for...of statement:
+    ~~~~~~~~~~~~~~~~~~
+
+      creates a loop Iterating over iterable objects
+      (including Array, Map, Set, arguments object and so on),
+      invoking a custom iteration hook with statements
+      to be executed for the value of each distinct property.
+
+      : for (variable of object) {
+          statement;
+        }
+
+        ***  While for...in iterates over property names,
+        ***  for...of iterates over property values:
+
+*** Capitol 5:
+
+  FUNCTIONS:
+  ~~~~~~~~~
+
+    Function declarations:
+
+      : function square(number) {
+          return number * number;
+        }
+
+        keyword   => function
+        name      => square
+        parameter => number
+        statement => {}
+
+          The return statement ends function execution
+          and specifies a value to be returned to the function caller.
+          *** return [[expression]];
