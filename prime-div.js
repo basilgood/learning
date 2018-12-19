@@ -1,28 +1,23 @@
-'use strict';
-
-
 function divisors(num) {
   let array = [];
 
-  for ( let j = 2; j <= num; j++) {
-
+  for (let j = 2; j <= num; j++) {
     while (num % j === 0) {
-      array.push(j);
       num = num / j;
-      console.log(array);
-      return array;
+      array[array.length] = j;
     }
-
   }
+  return array;
 }
-// divisors(18);
+
+// console.log(divisors(10));
+
 function primeSort(arr) {
-
+  let arrRes = [];
   for (let i = 0; i < arr.length; i++) {
-    divisors(arr[i]);
+    arrRes[arrRes.length] = (divisors(arr[i]));
   }
-
+  return arrRes;
 }
 
-console.log(primeSort([1,4,10]));
-console.log(primeSort([13,49]));
+console.log(primeSort([2,4,9,68,10,144,100]));
