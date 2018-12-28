@@ -18,18 +18,17 @@ function divisors(num) {
 
 function primeSort(arr) {
   let arrRes = [];
-  let lastArr = [];
+  // let lastArr = [];
   for (let i = 0; i < arr.length; i++) {
-    let divs = (divisors(arr[i]));
-    arrRes[arrRes.length] = divs[i];
-    // // console.log(divs);
-    // for (let n = 0; n < divs.length; n++) {
-    //   lastArr[lastArr.length] = divs[n];
-    // }
+    let divs = divisors(arr[i]);
+    // console.log(divs);
+    for (let n = 0; n < divs.length; n++) {
+      arrRes[arrRes.length] = divs[n];
+    }
   }
+  // console.log(lastArr);
   return arrRes;
 }
 
-// divisors(arr[0])[2];
 
-console.log(primeSort([2,4,9,68,10,144,100]));
+console.log(primeSort([2, 4, 9, 68, 10, 144, 100]));
