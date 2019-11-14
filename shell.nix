@@ -1,7 +1,7 @@
 with import <nixpkgs> {};
 
 let
-  node = nodejs-8_x;
+  node = nodejs-10_x;
 in
 
 stdenv.mkDerivation rec {
@@ -13,12 +13,12 @@ stdenv.mkDerivation rec {
   shellHook = ''
     export PATH="$PWD/node_modules/.bin/:$PATH"
 
-    echo "=> Yarn install"
+    echo "=> npm install"
     if [ -f "package.json" ]
     then
-      yarn install
+      npm install
     else
-      yarn init
+      npm init
     fi
 
   '';
